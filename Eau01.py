@@ -1,23 +1,17 @@
-## <~~MrRøølåÐe~~>
-## Combinaisons de 3 chiffres
-## affiche toutes les combinaisons possible de 3 chiffres dans l'ordre croissant, dans l'ordre croissant. (la répétition est volontaire)
+##<~~MrRøølåÐe~~>
+## Combinaisons de 2 chiffres
+## affiche toutes les combinaisons possible de 2 nombres entre 00 et 99 dans l'ordre croissant.
 
 ## Variables Import et Fonction
-n = 10  # définit l'interval pour l'affichage des chiffres
+n = 100 # définit l'interval pour l'affichage des chiffres
 
-## ci dessous 3 boucles imbriquées 
-# la première itère x de 0 à 9
-# la deuxième itère y de x à 9; si y = x  on zappe le chiffre sinon on continue sur la troisième boucle
-# la troisième itère z de y à 9; si z =x ou z = y on zappe le chiffre sinon on affiche la combinaison
-
+# ci dessous 2 boucles imbriquées
+# la premiere itère x jusqu'à 99
+# la deuxième itère y de x jusqu'à 99; si y = x on saute le chiffre sinon on affiche la combinaison
 for x in range(n) :
     for y in range(x,n) :
         if y == x :
             pass
         else :
-            for z in range(y,n):
-                if z == y or z == x :
-                    pass
-                else:
-                    print (f"{x}{y}{z}",end=" ")
+            print (f"{x:02d} {y:02d},",end=" ") #affiche la combinaison des chiffres avec 2 digits
 #FIN

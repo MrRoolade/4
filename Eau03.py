@@ -1,22 +1,37 @@
-#~> MrRøølåÐe <~#
-## ARGUMENTS à L'ENVERS
-## 
+#~~> MrRøølåÐe <~~#
+## la suite de Fibonacci
+### programme qui affiche le N-ème élément de la célèbre suite de Fibonacci.
+#### Affiche -1 si le paramètre est négatif ou mauvais.
+
 import sys
+fibonacci = []
 
-# verif_digit = False                                           #si les arguments doivent etre que des chiffres
-Nbre_Arg = len(sys.argv)
+def function_fibonacci(n):
+    n = int(n)
+    if n == 0 :
+        return 0
+    if n == 1 :
+        return 1
+    else:
+        return  function_fibonacci(n-1) + function_fibonacci(n-2)
+    
+if len(sys.argv) ==2  :
 
-if Nbre_Arg > 1:
+    try:
+        x = int(sys.argv[1])
+        if sys.argv[1].isdigit():
 
-    # verif_digit = any(arg.isdigit() for arg in sys.argv)      #si les arguments doivent etre que des chiffres
+            for x in range(0,x+1):
+                fibonacci.append(function_fibonacci(x))
 
-    # if not verif_digit:                                       #si les arguments doivent etre que des chiffres
+            print(fibonacci[x])
 
-        for i in range(Nbre_Arg-1,0,-1):
-            if sys.argv != sys.argv[0]: 
-                print(sys.argv[i])
+    except ValueError:
+        print("-1")
 
-    # else :                                                    #si les arguments doivent etre que des chiffres
-        # print("error")
-else :
-    print("error")
+    except IndexError:
+        print("-1")
+else:
+    print("-1")
+
+#~~> MrRøølåÐe <~~#
