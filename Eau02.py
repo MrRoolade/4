@@ -1,17 +1,22 @@
-##<~~MrRøølåÐe~~>
-## Combinaisons de 2 chiffres
-## affiche toutes les combinaisons possible de 2 nombres entre 00 et 99 dans l'ordre croissant.
+#~> MrRøølåÐe <~#
+## ARGUMENTS à L'ENVERS
+## 
+import sys
 
-## Variables Import et Fonction
-n = 100 # définit l'interval pour l'affichage des chiffres
+# verif_digit = False    #si les arguments doivent etre que des chiffres
+Nbre_Arg = len(sys.argv)
 
-# ci dessous 2 boucles imbriquées
-# la premiere itère x jusqu'à 99
-# la deuxième itère y de x jusqu'à 99; si y = x on saute le chiffre sinon on affiche la combinaison
-for x in range(n) :
-    for y in range(x,n) :
-        if y == x :
-            pass
-        else :
-            print (f"{x:02d} {y:02d},",end=" ") #affiche la combinaison des chiffres avec 2 digits
-#FIN
+if Nbre_Arg > 1:
+
+    # verif_digit = any(arg.isdigit() for arg in sys.argv)      #si les arguments doivent etre que des chiffres
+
+    # if not verif_digit:                                       #si les arguments doivent etre que des chiffres
+
+        for i in range(Nbre_Arg-1,0,-1):
+            if sys.argv != sys.argv[0]: 
+                print(sys.argv[i])
+
+    # else :                                                    #si les arguments doivent etre que des chiffres
+        # print("error")
+else :
+    print("error")
