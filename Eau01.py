@@ -14,4 +14,5 @@ for x in range(n) :
             pass
         else :
             print (f"{x:02d} {y:02d},",end=" ") #affiche la combinaison des chiffres avec 2 digits
-#FIN
+
+##END
