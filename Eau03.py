@@ -4,8 +4,8 @@
 #### Affiche -1 si le paramètre est négatif ou mauvais.
 
 import sys
-fibonacci = []
 
+# Fonction
 def function_fibonacci(n):
     n = int(n)
     if n == 0 :
@@ -15,23 +15,32 @@ def function_fibonacci(n):
     else:
         return  function_fibonacci(n-1) + function_fibonacci(n-2)
     
-if len(sys.argv) ==2  :
+def sortie_prog():
+    print("-1")
+    exit()
 
+# Parsing
+Nbre_Arg = len(sys.argv)
+fibonacci = []
+x = 0
+  
+# Gestion des erreurs   
+if Nbre_Arg ==2  :
     try:
         x = int(sys.argv[1])
-        if sys.argv[1].isdigit():
-
-            for x in range(0,x+1):
-                fibonacci.append(function_fibonacci(x))
-
-            print(fibonacci[x])
+        sys.argv[1].isdigit()
 
     except ValueError:
-        print("-1")
-
+        sortie_prog()
+        
     except IndexError:
-        print("-1")
+        sortie_prog()
 else:
-    print("-1")
+    sortie_prog()
 
-#~~> MrRøølåÐe <~~#
+# Résolution
+for x in range(0,x+1):
+    fibonacci.append(function_fibonacci(x))
+
+# Résultat
+print(fibonacci[x])
