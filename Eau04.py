@@ -1,46 +1,52 @@
 #~~> MrRøølåÐe <~~#
 ## la suite de Fibonacci
-### programme qui affiche le N-ème élément de la célèbre suite de Fibonacci.
+### programme qui affiche le premier nombre premier supérieur au nombre donné en argument.
 #### Affiche -1 si le paramètre est négatif ou mauvais.
 
 import sys
 
 # Fonction
-def function_fibonacci(n):
-    n = int(n)
-    if n == 0 :
-        return 0
-    if n == 1 :
-        return 1
-    else:
-        return  function_fibonacci(n-1) + function_fibonacci(n-2)
-    
+def next_prime_number(user_value):
+    n = user_value
+    reste_division = []
+    for x in range(2, n-1) :            # boucle sur l'interval de nombre entre 2 et la saisie -1
+                reste = n % x           #affecte le résulat de l'opération '%' dans la variable 'reste'
+                reste_division.append(reste) #enregistre reste dans la liste reste_division
+
+    if reste_division.count(0) != 0 :  
+    # teste la presence du chiffre zero dans la liste ou si la saisie est 0 ou 1
+        return(False)
+    else :
+        return (True)
+
 def sortie_prog():
     print("-1")
-    exit()
+    sys.exit()
 
 # Parsing
-Nbre_Arg = len(sys.argv)
-fibonacci = []
+user_value = sys.argv[1]
+number_of_value = len(sys.argv)
 x = 0
+n = 0
   
 # Gestion des erreurs   
-if Nbre_Arg ==2  :
+if number_of_value == 2 :
     try:
-        x = int(sys.argv[1])
-        sys.argv[1].isdigit()
+        user_value.isdigit()
+        user_value = int(user_value) +1
 
-    except ValueError:
-        sortie_prog()
-        
-    except IndexError:
+        user_value != 0
+        user_value != 1
+        user_value < 0 # teste si l'argument est négatif
+
+    except (ValueError, IndexError): #si erreur de type de variable
         sortie_prog()
 else:
     sortie_prog()
 
 # Résolution
-for x in range(0,x+1):
-    fibonacci.append(function_fibonacci(x))
+while next_prime_number(user_value) is False:
+     user_value += 1 
 
 # Résultat
-print(fibonacci[x])
+print(user_value)
