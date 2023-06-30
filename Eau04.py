@@ -5,19 +5,18 @@
 
 import sys
 
-# Fonction
-def next_prime_number(user_value):
-    n = user_value
-    reste_division = []
+# Fonctions
+def is_prime(n):
     for x in range(2, n-1) :            # boucle sur l'interval de nombre entre 2 et la saisie -1
-                reste = n % x           #affecte le résulat de l'opération '%' dans la variable 'reste'
-                reste_division.append(reste) #enregistre reste dans la liste reste_division
+        if n % x == 0 :  
+            return(False)
+    return (True)
 
-    if reste_division.count(0) != 0 :  
-    # teste la presence du chiffre zero dans la liste ou si la saisie est 0 ou 1
-        return(False)
-    else :
-        return (True)
+def next_prime_number(user_value):
+    n = user_value + 1
+    while not is_prime(n) :
+        n += 1
+    return(n)
 
 def sortie_prog():
     print("-1")
@@ -26,18 +25,15 @@ def sortie_prog():
 # Parsing
 user_value = sys.argv[1]
 number_of_value = len(sys.argv)
-x = 0
-n = 0
   
 # Gestion des erreurs   
 if number_of_value == 2 :
     try:
         user_value.isdigit()
-        user_value = int(user_value) +1
+        user_value = int(user_value)
 
-        user_value != 0
-        user_value != 1
-        user_value < 0 # teste si l'argument est négatif
+        if user_value <= 0 :
+            sortie_prog()
 
     except (ValueError, IndexError): #si erreur de type de variable
         sortie_prog()
@@ -45,8 +41,7 @@ else:
     sortie_prog()
 
 # Résolution
-while next_prime_number(user_value) is False:
-     user_value += 1 
+result = next_prime_number(user_value)
 
 # Résultat
-print(user_value)
+print(result)
