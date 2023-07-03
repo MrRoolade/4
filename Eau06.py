@@ -13,11 +13,9 @@ def upper_case_one_letter_on_two():
         if i_value[i].isalpha():
             counter += 1
             if counter % 2 != 0 : 	
-                string = i_value[i]
-                i_value[i] = string.upper()
+                i_value[i] = i_value[i].upper()
             else:	
-                string = i_value[i]
-                i_value[i] = string.lower()
+                i_value[i] = i_value[i].lower()
     return "".join(i_value) 
             
 def quit_program():
@@ -27,20 +25,19 @@ def quit_program():
 # Parsing
 user_value = sys.argv[1:]
 number_of_value = len(sys.argv)
-i_value =[]
-for n in range(1,  number_of_value):
-    buffer_list=list(sys.argv[n]+" ")
-    i_value += buffer_list
+i_value =list(" ".join(user_value))
   
 # Gestion des erreurs   
-try:
-    for value in user_value :
-        if value.isdigit() :
-            quit_program()
-except (ValueError, IndexError): #si erreur de type de variable
+if number_of_value >1:
+    try:
+        for value in user_value :
+            if value.isdigit() :
+                quit_program()
+    except (ValueError, IndexError): #si erreur de type de variable
+        quit_program()
+else:
     quit_program()
-
-
+    
 # Résolution
 result = upper_case_one_letter_on_two()
 
