@@ -10,9 +10,9 @@ import sys
 # Fonctions
 def find_index(i_value,search_value):
       for i in range(len(i_value)):
-        value_between.append(str(limit_down)+" ")
-        limit_down += 1
-  
+        if i_value[i] == search_value :
+             index_value = i
+             return index_value
       
 def quit_program():
     print("error")
@@ -36,9 +36,11 @@ except (ValueError, IndexError):
 
 # Résolution
 # limit_down, limit_up = between_min_max(i_value)
-# result = between_function(limit_down, limit_up)
+result = find_index(i_value,search_value)
 
 # Résultat
 print(user_value)
 print(search_value)
 print(i_value)
+print(i_value.index(search_value))
+print(result)
