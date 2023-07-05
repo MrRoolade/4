@@ -9,7 +9,6 @@ import sys
 # Fonctions
 def difference_absolute(user_value):
     array_difference = []
-    difference = 0
     for i in range(len(user_value)):
         for j in range(i+1,len(user_value)):
             difference = int(user_value[i]) - int(user_value[j])
