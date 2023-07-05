@@ -8,9 +8,9 @@
 import sys
 
 # Fonctions
-def find_index(i_value,search_value):
-      for i in range(len(i_value)):
-        if i_value[i] == search_value :
+def find_index(user_value,search_value):
+      for i in range(len(user_value)):
+        if user_value[i] == search_value :
              index_value = i
              return index_value
       
@@ -22,7 +22,6 @@ def quit_program():
 user_value = sys.argv[1:-1]
 search_value = sys.argv[-1]
 number_of_value = len(sys.argv)
-i_value = list(user_value)
   
 # Gestion des erreurs 
 try:
@@ -35,12 +34,7 @@ except (ValueError, IndexError):
         quit_program()
 
 # Résolution
-# limit_down, limit_up = between_min_max(i_value)
-result = find_index(i_value,search_value)
+result = find_index(user_value,search_value)
 
 # Résultat
-print(user_value)
-print(search_value)
-print(i_value)
-print(i_value.index(search_value))
 print(result)
