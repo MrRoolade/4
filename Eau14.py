@@ -25,6 +25,7 @@ def my_selection_sort_by_ord(user_value):
         user_value[i], user_value[min_index] = user_value[min_index], user_value[i]
     return user_value
 
+# Fonctions sans utiliser la methode ord()
 # def my_selection_sort(user_value):
 #     for i in range(len(user_value)-1):
 #         position_min = i
