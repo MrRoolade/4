@@ -24,7 +24,7 @@ def quit_program():
     sys.exit("error")
 
 # Parsing
-user_value = sys.argv[1:]
+    user_value = sys.argv[1:]
 number_of_value = len(sys.argv)
   
 # Gestion des erreurs 
